@@ -33,7 +33,6 @@ Application will have 2 main parts…
 ```sh
 ng g m core
 
-
 cat > projects/control-app/src/app/core/core.module.ts <<'EOL'
 // projects/control-app/src/app/core/core.module.ts
 import { NgModule } from '@angular/core';
