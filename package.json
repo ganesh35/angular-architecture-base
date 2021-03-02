@@ -1,5 +1,5 @@
 {
-  "name": "angular-architecture-base2",
+  "name": "angular-architecture-base",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.3",
+    "@angular/cdk": "^11.2.2",
     "@angular/common": "~11.2.3",
     "@angular/compiler": "~11.2.3",
     "@angular/core": "~11.2.3",

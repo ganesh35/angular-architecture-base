@@ -8,6 +8,7 @@ Creating a new Angular application with clean, maintainable and extendable archi
   - [Core Module](#core-module)
   - [Layout](#layout)
   - [The Lazy Modules](#the-lazy-modules)
+  - [The Shared Module](#the-shared-module)
 
 ## Workspace
 Generate fresh new Angular workspace and this can be achieved by running
@@ -81,11 +82,29 @@ EOL
 
 ## Layout
 ```sh
-npm install --save @angular/material
+ng add @angular/material
 ng g c core/layout/main-layout
 ```
 
 
 ## The Lazy Modules
+```sh
+ng g m features/home --route home --module app.module.ts
+ng g m features/admin --route admin --module app.module.ts
+```
+## The Shared Module
+```sh
+ng g m shared
+```
 
+what should we put into it?
+declarables (components, directives and pipes) which we want to use in multiple lazy features
+components from libraries (vendor / material / your component framework)
+re-export CommonModule (it implements stuff like *ngFor, *ngIf, … )
 
+TIP: Shared module will be imported by many lazy loaded features and because of that it should NEVER implement any services (providers: [ ]) and only contain declarables (components, directives and pipes) and modules (which only contain declarables).
+Creating and using necessary components
+```sh
+ng g c shared/layout/footer --module shared
+ng g c shared/layout/header --module shared
+```
