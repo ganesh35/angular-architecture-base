@@ -19,7 +19,7 @@ ng new angular-architecture-base --create-application false --strict --prefix gk
 
 ```sh
 ng g application control-app --prefix gk --style css --routing
-ng g application display-app --prefix gk --style scss --routing
+ng g application monitor-app --prefix gk --style scss --routing
 ```
 ## The Application Architecture
 ![App Architecture](/assets/app-arch.jpg)

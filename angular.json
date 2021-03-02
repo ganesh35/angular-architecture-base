@@ -118,6 +118,126 @@
           }
         }
       }
+    },
+    "monitor-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/monitor-app",
+      "sourceRoot": "projects/monitor-app/src",
+      "prefix": "gk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/monitor-app",
+            "index": "projects/monitor-app/src/index.html",
+            "main": "projects/monitor-app/src/main.ts",
+            "polyfills": "projects/monitor-app/src/polyfills.ts",
+            "tsConfig": "projects/monitor-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/monitor-app/src/favicon.ico",
+              "projects/monitor-app/src/assets"
+            ],
+            "styles": [
+              "projects/monitor-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/monitor-app/src/environments/environment.ts",
+                  "with": "projects/monitor-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "monitor-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "monitor-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "monitor-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/monitor-app/src/test.ts",
+            "polyfills": "projects/monitor-app/src/polyfills.ts",
+            "tsConfig": "projects/monitor-app/tsconfig.spec.json",
+            "karmaConfig": "projects/monitor-app/karma.conf.js",
+            "assets": [
+              "projects/monitor-app/src/favicon.ico",
+              "projects/monitor-app/src/assets"
+            ],
+            "styles": [
+              "projects/monitor-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/monitor-app/tsconfig.app.json",
+              "projects/monitor-app/tsconfig.spec.json",
+              "projects/monitor-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/monitor-app/e2e/protractor.conf.js",
+            "devServerTarget": "monitor-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "monitor-app:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "control-app"
