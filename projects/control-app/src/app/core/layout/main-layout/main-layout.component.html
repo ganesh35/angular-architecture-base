@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    Hello World!
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary" routerLink="home" routerLinkActive="active">Home</button>
+  <button mat-flat-button color="primary" routerLink="admin" routerLinkActive="active">Admin</button>
+  <button mat-flat-button color="primary" routerLink="pages" routerLinkActive="active">Pages</button>
+</mat-toolbar>
+
+<main>
+  <gk-header></gk-header>
+    <p>control app is running!</p>
+  <router-outlet></router-outlet>
+  <gk-footer></gk-footer>
+</main>
