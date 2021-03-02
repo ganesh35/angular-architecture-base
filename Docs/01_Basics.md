@@ -58,7 +58,7 @@ npm install -g @angular/cli
 ## Angular workspace
 Generate fresh new Angular workspace and this can be achieved by running
 ```sh
-ng new angular-architecture-base --create-application false --strict
+ng new angular-architecture-base --create-application false --strict --prefix gk
 ```
 
 ng new angular-architecture-base --create-application false --prefix gk
