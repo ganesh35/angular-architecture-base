@@ -3,5 +3,122 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "control-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/control-app",
+      "sourceRoot": "projects/control-app/src",
+      "prefix": "gk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/control-app",
+            "index": "projects/control-app/src/index.html",
+            "main": "projects/control-app/src/main.ts",
+            "polyfills": "projects/control-app/src/polyfills.ts",
+            "tsConfig": "projects/control-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/control-app/src/favicon.ico",
+              "projects/control-app/src/assets"
+            ],
+            "styles": [
+              "projects/control-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/control-app/src/environments/environment.ts",
+                  "with": "projects/control-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "control-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "control-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "control-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/control-app/src/test.ts",
+            "polyfills": "projects/control-app/src/polyfills.ts",
+            "tsConfig": "projects/control-app/tsconfig.spec.json",
+            "karmaConfig": "projects/control-app/karma.conf.js",
+            "assets": [
+              "projects/control-app/src/favicon.ico",
+              "projects/control-app/src/assets"
+            ],
+            "styles": [
+              "projects/control-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/control-app/tsconfig.app.json",
+              "projects/control-app/tsconfig.spec.json",
+              "projects/control-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/control-app/e2e/protractor.conf.js",
+            "devServerTarget": "control-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "control-app:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "control-app"
 }
