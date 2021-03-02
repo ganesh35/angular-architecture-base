@@ -18,8 +18,8 @@ ng new angular-architecture-base --create-application false --strict --prefix gk
 ## Application
 
 ```sh
-ng g application control --prefix gk --style css --routing
-ng g application monitoring --prefix gk --style scss --routing
+ng g application control-app --prefix gk --style css --routing
+ng g application display-app --prefix gk --style scss --routing
 ```
 ## The Application Architecture
 ![App Architecture](/assets/app-arch.jpg)
@@ -34,8 +34,8 @@ Application will have 2 main parts…
 ng g m core
 
 
-cat > projects/control/src/app/core/core.module.ts <<'EOL'
-// projects/control/src/app/core/core.module.ts
+cat > projects/control-app/src/app/core/core.module.ts <<'EOL'
+// projects/control-app/src/app/core/core.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -53,8 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export class CoreModule { }
 EOL
 
-cat > projects/control/src/app/app.module.ts <<'EOL'
-// projects/control/src/app/app.module.ts
+cat > projects/control-app/src/app/app.module.ts <<'EOL'
+// projects/control-app/src/app/app.module.ts
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -73,9 +73,9 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 EOL
-cat > projects/control/src/app/app.component.html <<'EOL'
+cat > projects/control-app/src/app/app.component.html <<'EOL'
 <h1>Hello World!</h1>
-<p>control app is running!</p>
+<p>control-app app is running!</p>
 EOL
 
 
