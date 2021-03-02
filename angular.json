@@ -240,6 +240,46 @@
           }
         }
       }
+    },
+    "lib-auth": {
+      "projectType": "library",
+      "root": "projects/lib-auth",
+      "sourceRoot": "projects/lib-auth/src",
+      "prefix": "gk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/lib-auth/tsconfig.lib.json",
+            "project": "projects/lib-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-auth/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lib-auth/src/test.ts",
+            "tsConfig": "projects/lib-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/lib-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lib-auth/tsconfig.lib.json",
+              "projects/lib-auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "control-app"
