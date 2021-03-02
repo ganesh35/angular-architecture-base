@@ -22,7 +22,7 @@ ng g application control-app --prefix gk --style css --routing
 ng g application monitor-app --prefix gk --style scss --routing
 ```
 ## The Application Architecture
-![App Architecture](/assets/app-arch.jpg)
+![App Architecture](assets/app-arch.jpg)
 
 Application will have 2 main parts…
 - The eager part which will be loaded from start (the main.js bundle). It will contain the AppModule with top-level routes and CoreModule with basic layout and all the core singleton services which will be used throughout the whole application.
